@@ -205,6 +205,50 @@ The scripts use common configurations defined in `scripts/common.sh`. Important 
   [network]-bl[bit length]-j[threads]-[framework]-[options]-[log number]-[role].log
   ```
 
+## Testing HE Convolution Performance on GPU
+
+To test the Homomorphic Encryption (HE) convolution performance on GPU using the Troy library, you can use the `run-conv-gpu.sh` script. This script is located in the `scripts/` directory alongside the other bash scripts.
+
+### Usage
+
+Run the script directly from the command line. The script benchmarks the convolution operations using HE on GPU.
+
+```bash
+bash scripts/run-conv-gpu.sh [options]
+```
+
+### Options
+
+- `-cpu`: Run the benchmarks on CPU instead of GPU. **Default:** GPU execution.
+- `-cheetah`: Use the Cheetah framework's convolution kernels without NTT preprocessing. **Default:** Uses SecONNds convolution with NTT preprocessing.
+- `-resnet50`: Run benchmarks for the ResNet50 network. **Default:** Runs benchmarks for SqueezeNet (`sqnet`).
+- `-l=[log number]`: Tag the log file name with a number. **Default:** No prefix.
+- `-v` or `--verbose`: Enable verbose output.
+- `-help`: Display help information.
+
+### Examples
+
+- **Run SqueezeNet convolution benchmarks:**
+
+  ```bash
+  bash scripts/run-conv-gpu.sh
+  ```
+
+- **Run ResNet50 convolution benchmarks using Cheetah's convolution kernels:**
+
+  ```bash
+  bash scripts/run-conv-gpu.sh -resnet50 -cheetah
+  ```
+
+### Logs for GPU HE Convolutions
+
+- Logs are saved in the `logs/` directory by default.
+- The log file name format is:
+
+  ```
+  [network]-conv2d-[cpu|gpu]-[framework]-[log number].log
+  ```
+
 ### Disable Logging
 
 - Use the `--no_log` or `-nl` option to prevent log file generation.
