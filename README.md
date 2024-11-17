@@ -205,6 +205,11 @@ The scripts use common configurations defined in `scripts/common.sh`. Important 
   [network]-bl[bit length]-j[threads]-[framework]-[options]-[log number]-[role].log
   ```
 
+### Disable Logging
+
+- Use the `--no_log` or `-nl` option to prevent log file generation.
+
+
 ## Testing HE Convolution Performance on GPU
 
 To test the Homomorphic Encryption (HE) convolution performance on GPU using the Troy library, you can use the `run-conv-gpu.sh` script. This script is located in the `scripts/` directory alongside the other bash scripts.
@@ -248,10 +253,6 @@ bash scripts/run-conv-gpu.sh [options]
   ```
   [network]-conv2d-[cpu|gpu]-[framework]-[log number].log
   ```
-
-### Disable Logging
-
-- Use the `--no_log` or `-nl` option to prevent log file generation.
 
 ## Debugging
 
